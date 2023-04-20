@@ -42,14 +42,14 @@ public class UsuarioService {
 		Usuario nuevoUsuario = usuarioRepository.save(usuario);
 		return nuevoUsuario;
 	}
-
+     //se pone el carro-service supuestamente por el balanceo de carga pero hay que checar
 	public List<Carro> getCarros(int usuarioId){
-		List<Carro> carros = restTemplate.getForObject("http://localhost:8002/carro/usuario/"+usuarioId, List.class);
+		List<Carro> carros = restTemplate.getForObject("http://carro-service/carro/usuario/"+usuarioId, List.class);
 		return carros;
 	}
 	
 	public List<Moto> getMotos(int usuarioId){
-		return restTemplate.getForObject("http://localhost:8003/moto/usuario/"+usuarioId, List.class);
+		return restTemplate.getForObject("http://moto-service/moto/usuario/"+usuarioId, List.class);
 	}
 	public Carro saveCarro(int usuarioId, Carro carro) {
 		carro.setUsuarioId(usuarioId);
