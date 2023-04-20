@@ -5,8 +5,8 @@ spring:
     config:
       server:
         git:
-          default-label: gateway
-          uri: https://github.com/ChristianRaulRamirez/microservicios-tutorial
+          default-label: circuit-breaker
+          uri: https://github.com/juancarlosmop/microservicios-tutorial
           search-paths: config-data
   application:
       name: config-service
